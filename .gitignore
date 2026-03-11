@@ -1,0 +1,82 @@
+# ============================================================
+# Backend .gitignore — FastAPI / Python
+# ============================================================
+
+# ── Environment & Secrets ────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python Bytecode & Cache ──────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ── Virtual Environments ─────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ── Distribution / Build ─────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# ── Testing & Coverage ───────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# ── Type Checking ────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+
+# ── Database ─────────────────────────────────────────────────
+*.db
+*.sqlite3
+
+# ── Alembic ──────────────────────────────────────────────────
+# Uncomment if you do not want to commit migration revisions:
+# alembic/versions/
+
+# ── ML Models & Large Binary Artefacts ──────────────────────
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.onnx
+*.joblib
+*.bin
+
+# ── FAISS / Vector Store ─────────────────────────────────────
+app/rag_engine/vectorstore/
+*.faiss
+*.index
+
+# ── Uploaded / Generated Media ──────────────────────────────
+app/media/
+app/static/uploads/
+
+# ── PDF / CSV Reports ────────────────────────────────────────
+*.pdf
+*.csv
+
+# ── Logs ─────────────────────────────────────────────────────
+logs/
+*.log
+
+# ── Jupyter ──────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Misc ─────────────────────────────────────────────────────
+*.tmp
+*.bak
