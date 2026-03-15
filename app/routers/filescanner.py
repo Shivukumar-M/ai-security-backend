@@ -17,6 +17,8 @@ from app.dependencies import DBSession, CurrentUser
 from app.services.virustotal_service import VirusTotalService
 from app.models.filescan_model import FileScanResult
 
+from sqlmodel import select
+
 # RAG ENGINE (Gemini+OpenAI hybrid)
 from app.rag_engine.rag_utils import RAGUtility
 
@@ -303,7 +305,7 @@ async def get_file(scan_id: str, db: DBSession):
 async def get_file_query(hash: str, db: DBSession):
     # Query by hash returns all scans with same file hash
     results = db.exec(
-        FileScanResult.select().where(FileScanResult.hash == hash)
+        select(FileScanResult).where(FileScanResult.hash == hash)
     ).all()
 
     if not results:
