@@ -1,7 +1,7 @@
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session
-from typing import Annotated
+from typing import Annotated, TypeAlias
 
 from app.database import get_session
 from app.models.user_model import User
@@ -11,7 +11,7 @@ from app.utils.security import decode_access_token
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 
 # Database session annotation
-DBSession = Annotated[Session, Depends(get_session)]
+DBSession: TypeAlias = Annotated[Session, Depends(get_session)]
 
 
 
@@ -51,4 +51,4 @@ async def get_current_user(
 
 
 # Shorthand alias
-CurrentUser = Annotated[User, Depends(get_current_user)]
+CurrentUser: TypeAlias = Annotated[User, Depends(get_current_user)]
