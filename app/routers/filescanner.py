@@ -61,6 +61,9 @@ SUSPICIOUS_KEYWORDS = [
     b"bash -i >& /dev/tcp", b"dup2(s.fileno",
     b"reverse_shell", b"revshell", b"bind_shell",
     b"nc -e /bin", b"ncat -e",
+    # DoS / Botnet
+    b"SYN_FLOOD", b"DDOS_ATTACK", b"BOTNET",
+    b"TRAFFIC_FLOOD", b"HIGH_REQUEST_RATE",
 ]
 
 # Map keywords -> human-readable malware category
@@ -92,6 +95,11 @@ KEYWORD_CATEGORY_MAP = {
     "bind_shell": "Bind Shell",
     "nc -e /bin": "Reverse Shell",
     "ncat -e": "Reverse Shell",
+    "SYN_FLOOD": "Denial of Service",
+    "DDOS_ATTACK": "Denial of Service",
+    "BOTNET": "Botnet Activity",
+    "TRAFFIC_FLOOD": "Denial of Service",
+    "HIGH_REQUEST_RATE": "Denial of Service",
 }
 
 
